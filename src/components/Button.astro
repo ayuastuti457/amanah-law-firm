@@ -1,0 +1,106 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  [key: string]: any; // Allow other standard HTML attributes
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  class: className = '', 
+  type = 'button',
+  ...rest 
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-semibold text-center transition-all duration-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2';
+
+const variants = {
+  primary: 'btn-primary text-white',
+  secondary: 'btn-secondary text-primary',
+  ghost: 'btn-ghost text-primary-light'
+};
+
+const sizeStyle = 'px-6 py-3.5 text-sm md:text-base';
+const classes = `${baseStyles} ${variants[variant]} ${sizeStyle} ${className}`;
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  .inline-flex {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  
+  /* Reset button styles inside our scoped styles */
+  .btn-primary, .btn-secondary, .btn-ghost {
+    font-family: var(--font-sans);
+    border-radius: var(--radius-md);
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+    box-sizing: border-box;
+  }
+
+  .btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-colored);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-colored-hover);
+    filter: brightness(1.1);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(109, 40, 217, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(109, 40, 217, 0.05);
+    color: var(--color-accent);
+  }
+</style>

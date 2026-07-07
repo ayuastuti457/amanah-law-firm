@@ -1,0 +1,626 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Button from '../components/Button.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import LawyerCard from '../components/LawyerCard.astro';
+
+const lawyers = [
+  { name: 'Ayu Astuti, S.H.', role: 'Pendiri & Partner Utama', specialties: ['Hukum Perdata', 'Hukum Bisnis'] },
+  { name: 'Cilsyla Ayu, S.H.', role: 'Partner Kemitraan', specialties: ['Mediasi Sengketa', 'Hukum Keluarga'] },
+  { name: 'M. Azka, S.H.', role: 'Spesialis Hukum Pidana', specialties: ['Hukum Pidana', 'Litigasi'] },
+  { name: 'M. Hafidz Rashinul F., S.H.', role: 'Partner Korporat', specialties: ['Hukum Bisnis', 'Ekonomi Syariah'] },
+  { name: 'M. Syafiq, S.H.', role: 'Konsultan Hukum', specialties: ['Konsultasi Online', 'Kontrak Bisnis'] },
+  { name: 'Muzadi Khoirul A., S.H.', role: 'Ahli Mediasi', specialties: ['Mediasi Sengketa', 'Hukum Agraria'] },
+  { name: 'Nayla Dwi S., S.H.', role: 'Partner Perdata', specialties: ['Hukum Perdata', 'Hukum Perjanjian'] },
+  { name: 'Qurrotul Aini, S.H.', role: 'Spesialis Syariah', specialties: ['Hukum Ekonomi Syariah', 'Waris & Hibah'] },
+  { name: 'Rizki Maulana, S.H.', role: 'Partner Litigasi', specialties: ['Litigasi Perdata', 'Hukum Tata Usaha Negara'] }
+];
+
+const practiceAreas = [
+  {
+    title: 'Hukum Perdata',
+    desc: 'Penyelesaian sengketa hak milik, perjanjian kontrak, waris, perkawinan, dan klaim ganti kerugian sipil secara profesional.',
+    iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'
+  },
+  {
+    title: 'Hukum Bisnis',
+    desc: 'Pendampingan legalitas pendirian perusahaan, merger & akuisisi, kepatuhan korporat, serta penyusunan kontrak bisnis premium.',
+    iconPath: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'
+  },
+  {
+    title: 'Hukum Ekonomi Syariah',
+    desc: 'Solusi hukum berbasis syariah untuk sengketa perbankan syariah, asuransi, kontrak mudharabah, dan sengketa waris islam.',
+    iconPath: 'M12 3v19M5 12h14'
+  },
+  {
+    title: 'Mediasi Sengketa',
+    desc: 'Mediasi alternatif di luar pengadilan yang netral, solutif, dan efisien demi tercapainya kesepakatan damai terbaik.',
+    iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75'
+  },
+  {
+    title: 'Konsultasi Hukum Online',
+    desc: 'Akses cepat konsultasi hukum tatap muka virtual dari mana saja demi efisiensi waktu dan kerahasiaan informasi Anda.',
+    iconPath: 'M15 10l5 5-5 5M4 4h7a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z'
+  }
+];
+---
+
+<MainLayout title="Amanah Law Firm | Keadilan Berlandaskan Integritas & Kepercayaan">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-mesh"></div>
+    <div class="container hero-content">
+      <div class="badge-glow">⚖ Amanah Law Center</div>
+      <h1 class="hero-title">
+        Menegakkan Keadilan dengan <span class="text-gradient">Integritas</span> & <span class="text-gradient">Amanah</span>
+      </h1>
+      <p class="hero-subtitle">
+        Amanah Law Firm berkomitmen mendampingi setiap langkah hukum Anda. Kami memberikan solusi hukum yang jujur, transparan, dan profesional untuk mengamankan hak-hak serta bisnis Anda.
+      </p>
+      <div class="hero-actions">
+        <Button href="/contact/" variant="primary">Konsultasi Sekarang</Button>
+        <Button href="/about/" variant="secondary">Pelajari Selengkapnya</Button>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- Core Values Section (Nilai Inti) -->
+  <section class="values-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nilai-Nilai Pelayanan Kami</span>
+        <h2 class="section-title">Fondasi Kepercayaan Anda</h2>
+        <p class="section-subtitle">Tiga nilai utama yang kami junjung tinggi dalam setiap penanganan kasus dan interaksi dengan klien.</p>
+      </div>
+      <div class="values-grid">
+        <FeatureCard 
+          number="01" 
+          title="Integritas" 
+          description="Menjunjung tinggi kebenaran, etika profesi, serta hukum yang berlaku tanpa kompromi untuk memastikan keadilan yang murni."
+        />
+        <FeatureCard 
+          number="02" 
+          title="Profesionalitas" 
+          description="Menyediakan keahlian hukum yang mendalam didukung riset komprehensif, ketepatan analisis, serta pelayanan responsif."
+        />
+        <FeatureCard 
+          number="03" 
+          title="Amanah" 
+          description="Memegang teguh kepercayaan klien, berkomitmen menjaga kerahasiaan informasi, dan berorientasi pada hasil terbaik."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief About Section -->
+  <section class="about-brief-section section-padding">
+    <div class="container brief-grid">
+      <div class="brief-visual">
+        <div class="isometric-box">
+          <div class="box-face front"></div>
+          <div class="box-face top">
+            <span class="scale-symbol">⚖</span>
+          </div>
+          <div class="box-face side"></div>
+        </div>
+        <div class="visual-glow"></div>
+      </div>
+      <div class="brief-text">
+        <span class="section-tag">Tentang Kami</span>
+        <h2 class="section-title">Mitra Hukum Terpercaya yang Selalu Ada di Sisi Anda</h2>
+        <p class="desc-paragraph">
+          Didirikan dengan cita-cita mulia untuk menegakkan hukum yang transparan dan akuntabel di Indonesia, Amanah Law Firm telah tumbuh menjadi salah satu firma hukum tepercaya. Kami memahami bahwa setiap masalah hukum membutuhkan pendekatan yang personal sekaligus profesional.
+        </p>
+        <p class="desc-paragraph">
+          Visi unik kami adalah menyederhanakan birokrasi hukum dan menghadirkan solusi yang pragmatis namun tetap patuh hukum, demi terwujudnya rasa keadilan dan ketenangan bagi klien kami.
+        </p>
+        <div class="brief-actions">
+          <Button href="/about/" variant="secondary">Baca Selengkapnya Tentang Kami</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas Highlights -->
+  <section class="practice-highlight-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Bidang Hukum Spesialisasi</span>
+        <h2 class="section-title">Solusi Hukum Komprehensif</h2>
+        <p class="section-subtitle">Layanan hukum terfokus yang kami hadirkan untuk melayani kebutuhan korporasi maupun individu.</p>
+      </div>
+      
+      <div class="practice-grid">
+        {practiceAreas.map((area) => (
+          <div class="practice-card hover-lift">
+            <div class="practice-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={area.iconPath} />
+              </svg>
+            </div>
+            <h3 class="practice-card-title">{area.title}</h3>
+            <p class="practice-card-desc">{area.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="practice-action-footer">
+        <Button href="/practice-areas/" variant="primary">Lihat Seluruh Bidang Hukum</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lawyers Team Showcase -->
+  <section class="team-showcase-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Tim Kami</span>
+        <h2 class="section-title">Advokat Berpengalaman & Berintegritas</h2>
+        <p class="section-subtitle">Bertemu dengan para profesional hukum kami yang berdedikasi tinggi untuk memberikan pembelaan hukum terbaik.</p>
+      </div>
+      
+      <div class="team-grid">
+        {lawyers.slice(0, 3).map((lawyer) => (
+          <LawyerCard 
+            name={lawyer.name} 
+            role={lawyer.role} 
+            specialties={lawyer.specialties}
+          />
+        ))}
+      </div>
+
+      <div class="team-cta-block">
+        <p class="team-cta-text">Kami memiliki total 9 pengacara ahli di berbagai bidang hukum yang siap membantu Anda.</p>
+        <Button href="/team/" variant="secondary">Lihat Seluruh Profil Pengacara ({lawyers.length})</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="cta-banner-section">
+    <div class="container cta-banner-container">
+      <div class="cta-banner-bg"></div>
+      <div class="cta-banner-content">
+        <h2 class="cta-banner-title">Butuh Pendampingan Hukum Profesional?</h2>
+        <p class="cta-banner-desc">Jangan tunda masalah hukum Anda. Hubungi kami hari ini untuk konsultasi awal yang komprehensif secara gratis bersama tim ahli kami.</p>
+        <div class="cta-banner-actions">
+          <Button href="/contact/" variant="primary" class="cta-glow">Hubungi Kami Sekarang</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    background-color: var(--color-primary-dark);
+    color: #ffffff;
+    padding: 8rem 0 7rem;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(109, 40, 217, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(30, 27, 75, 0.4) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(109, 40, 217, 0.08) 0px, transparent 50%);
+    opacity: 0.8;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .badge-glow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    background: rgba(109, 40, 217, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: var(--color-accent-light);
+    display: inline-flex;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    opacity: 0.8;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Values Section */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Brief About Section */
+  .about-brief-section {
+    background-color: #f1f5f9;
+  }
+
+  .brief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* Isometric Visual Details */
+  .brief-visual {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .isometric-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    transform: rotateX(60deg) rotateZ(-45deg);
+    transform-style: preserve-3d;
+    transition: var(--transition-smooth);
+  }
+
+  .brief-visual:hover .isometric-box {
+    transform: rotateX(60deg) rotateZ(-45deg) translateZ(15px);
+  }
+
+  .box-face {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: var(--gradient-primary);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .box-face.front {
+    transform: rotateY(90deg) translateZ(60px);
+    background: #1e1b4b; /* Deep shadow side */
+  }
+
+  .box-face.top {
+    transform: translateZ(60px);
+    background: var(--gradient-accent); /* Vibrant top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scale-symbol {
+    font-size: 3.5rem;
+    color: #ffffff;
+    transform: rotateZ(45deg) rotateX(-60deg); /* Counteract box rotation partially */
+    display: inline-block;
+  }
+
+  .box-face.side {
+    transform: rotateX(90deg) translateZ(60px);
+    background: #312e81; /* Medium shade side */
+  }
+
+  .visual-glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(109, 40, 217, 0.18) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  .brief-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .brief-text .section-title {
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc-paragraph {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .brief-actions {
+    margin-top: 1rem;
+  }
+
+  /* Practice Highlights */
+  .practice-highlight-section {
+    background: var(--color-bg-card);
+  }
+
+  .practice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .practice-card {
+    background: var(--color-bg-light);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--color-border);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .practice-card:hover {
+    border-color: rgba(109, 40, 217, 0.2);
+    box-shadow: var(--shadow-colored);
+  }
+
+  .practice-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-sm);
+    background: rgba(109, 40, 217, 0.08);
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+  }
+
+  .practice-card:hover .practice-icon-wrapper {
+    background: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .practice-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .practice-card-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .practice-action-footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Team Showcase */
+  .team-showcase-section {
+    background: #f8fafc;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .team-cta-block {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .team-cta-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  /* CTA Banner */
+  .cta-banner-section {
+    background-color: var(--color-bg-light);
+    padding-bottom: 6rem;
+  }
+
+  .cta-banner-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+  }
+
+  .cta-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    z-index: 1;
+  }
+
+  /* Decorative light rings */
+  .cta-banner-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 60%);
+    filter: blur(20px);
+  }
+
+  .cta-banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-banner-title {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-banner-desc {
+    color: var(--color-text-light);
+    opacity: 0.9;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-glow:hover {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6) !important;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 1024px) {
+    .hero-title {
+      font-size: 2.75rem;
+    }
+    
+    .values-grid, .practice-grid, .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .brief-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .brief-visual {
+      order: -1;
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 6rem 0 5rem;
+    }
+    
+    .hero-title {
+      font-size: 2.25rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.05rem;
+    }
+    
+    .hero-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .values-grid, .practice-grid, .team-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .cta-banner-content {
+      padding: 3.5rem 2rem;
+    }
+    
+    .cta-banner-title {
+      font-size: 1.75rem;
+    }
+    
+    .cta-banner-desc {
+      font-size: 0.95rem;
+    }
+  }
+</style>

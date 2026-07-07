@@ -1,0 +1,162 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  number: string;
+}
+
+const { title, description, number } = Astro.props;
+---
+
+<div class="feature-card">
+  <div class="card-bg-gradient"></div>
+  <div class="card-content">
+    <div class="number-tag">{number}</div>
+    <div class="icon-wrapper">
+      {number === "01" && (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feature-icon">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <path d="M12 22V12"></path>
+          <path d="M12 12H4"></path>
+          <path d="M12 12h8"></path>
+          <circle cx="12" cy="12" r="3" class="pulse-circle"></circle>
+        </svg>
+      )}
+      {number === "02" && (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feature-icon">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      )}
+      {number === "03" && (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feature-icon">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      )}
+    </div>
+    <h3 class="feature-title">{title}</h3>
+    <p class="feature-desc">{description}</p>
+  </div>
+</div>
+
+<style>
+  .feature-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    padding: 3rem 2.25rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--shadow-subtle);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  /* Isometric lift and glowing background on hover */
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg);
+    background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(109, 40, 217, 0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(109, 40, 217, 0.2);
+    box-shadow: var(--shadow-colored);
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-bg-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition-smooth);
+  }
+
+  .feature-card:hover .card-bg-gradient {
+    transform: scaleX(1);
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .number-tag {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(109, 40, 217, 0.05);
+    line-height: 1;
+    font-family: var(--font-sans);
+    user-select: none;
+    transition: var(--transition-smooth);
+  }
+
+  .feature-card:hover .number-tag {
+    color: rgba(109, 40, 217, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-md);
+    background: rgba(109, 40, 217, 0.05);
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(109, 40, 217, 0.1);
+  }
+
+  .feature-card:hover .icon-wrapper {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
+    border-color: transparent;
+  }
+
+  .feature-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-desc {
+    color: var(--color-text-muted);
+    font-size: 0.975rem;
+    line-height: 1.7;
+  }
+</style>
